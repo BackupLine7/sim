@@ -1,0 +1,118 @@
+{
+  "name": "Тур по крыму",
+  "height_tolerance_m": 20,
+  "waypoints": [
+    {
+      "longitude_deg": 33.070522517600104,
+      "latitude_deg": 45.40323906566144,
+      "name": "Точка 1",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 33.47989303223682,
+      "latitude_deg": 45.31126484287812,
+      "name": "Точка 2",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 33.80452817401942,
+      "latitude_deg": 45.06950286960127,
+      "name": "Точка 3",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 33.79079461189719,
+      "latitude_deg": 44.69406527160756,
+      "name": "Точка 4",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 34.115744704333174,
+      "latitude_deg": 44.61733168247591,
+      "name": "Точка 5",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 34.42700336001952,
+      "latitude_deg": 44.90523932411205,
+      "name": "Точка 6",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 34.91175093968222,
+      "latitude_deg": 45.07024387211304,
+      "name": "Точка 7",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 35.35685517174739,
+      "latitude_deg": 45.169469168665,
+      "name": "Точка 8",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 34.90797389925412,
+      "latitude_deg": 45.35196172225086,
+      "name": "Точка 9",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 34.80897657173051,
+      "latitude_deg": 45.632729587794934,
+      "name": "Точка 10",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 34.404751964342985,
+      "latitude_deg": 45.766604701300786,
+      "name": "Точка 11",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 33.98227348914466,
+      "latitude_deg": 45.73757315407296,
+      "name": "Точка 12",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 33.52152458640207,
+      "latitude_deg": 45.60336351573785,
+      "name": "Точка 13",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 34.12565447743816,
+      "latitude_deg": 45.314499902679096,
+      "name": "Точка 14",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    }
+  ]
+}

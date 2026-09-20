@@ -1,0 +1,5 @@
+{
+  "model": "Rascal",
+  "maximum_commanded_airspeed_kmh": 108,
+  "basis": "Validated operating command: 108 km/h achieved in live JSBSim flight. Not a guarantee for all winds, turns or climbs; not a structural Vne."
+}

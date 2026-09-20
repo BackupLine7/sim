@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ru"><meta charset="utf-8"><title>Проверка 3D-местности</title>
+<link rel="stylesheet" href="/vendor/cesium/Widgets/widgets.css">
+<style>html,body,#main{margin:0;width:100%;height:100%;overflow:hidden}#map{position:absolute;width:1px;height:1px;visibility:hidden}aside{position:absolute;top:12px;left:12px;background:#14282eee;color:white;padding:12px;font:14px sans-serif}button{padding:8px}#status{max-width:650px}</style>
+<div id="main"></div><div id="map"></div>
+<aside><button id="city">Симферополь · дома</button> <button id="mountains">Крым · горы</button><p id="status">Загрузка…</p></aside>
+<script src="/vendor/cesium/Cesium.js"></script>
+<script type="module">
+import {WorldStreamer, CesiumWorldHost} from './world/index.js';
+const C=Cesium;
+const create=id=>new C.Viewer(id,{baseLayer:false,animation:false,timeline:false,baseLayerPicker:false,geocoder:false,homeButton:false,sceneModePicker:false,navigationHelpButton:false,fullscreenButton:false,shadows:true});
+const main=create('main'),map=create('map');
+main.scene.globe.baseColor=C.Color.fromCssColorString('#879778');
+const settings=await fetch('/api/world/settings').then(r=>r.json());
+const world=new WorldStreamer(new CesiumWorldHost({main,map,groundM:153}),settings);
+function show(lon,lat,height,pitch){world.lastUpdate=-Infinity;world.update({longitude_deg:lon,latitude_deg:lat});main.camera.setView({destination:C.Cartesian3.fromDegrees(lon,lat,height),orientation:{heading:0,pitch,roll:0}});}
+document.querySelector('#city').onclick=()=>show(34.10,44.946,650,-0.8);
+document.querySelector('#mountains').onclick=()=>show(34.28,44.72,2100,-0.18);
+main.scene.renderError.addEventListener((scene,error)=>document.querySelector('#status').textContent=String(error));
+document.querySelector('#city').click();
+setInterval(async()=>{
+ const revision=await fetch('/api/terrain-cache').then(r=>r.json());
+ world.setTerrainRevision(`${revision.revision}:${Math.floor(Date.now()/30000)}`);
+ document.querySelector('#status').textContent=`Участки ${world.resident.size}/${world.desired.size}; здания ${[...world.resident.values()].reduce((n,e)=>n+e.data.buildings.length,0)}; ошибки загрузки ${world.failed.size}`;
+},2000);
+</script></html>

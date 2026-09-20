@@ -1,0 +1,26 @@
+{
+  "source_url": "https://overpass-api.de/api/interpreter",
+  "request_timeout_s": 120,
+  "cache_path": "data/osm/vegetation.json",
+  "row_spacing_m": 8,
+  "default_height_m": 9,
+  "deduplication_distance_m": 3,
+  "roadside": {
+    "enabled": true,
+    "spacing_m": 12,
+    "edge_clearance_m": 7,
+    "default_road_width_m": 7,
+    "junction_gap_m": 18,
+    "mapped_tree_clearance_m": 12,
+    "height_min_m": 7,
+    "height_max_m": 12,
+    "seed": 917,
+    "highway_types": [
+      "primary",
+      "secondary",
+      "tertiary",
+      "unclassified",
+      "track"
+    ]
+  }
+}

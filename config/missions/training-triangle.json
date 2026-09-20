@@ -1,0 +1,9 @@
+{
+  "name": "Учебный треугольник",
+  "waypoints": [
+    {"latitude_deg": 49.570314, "longitude_deg": 34.38011},
+    {"latitude_deg": 49.5840, "longitude_deg": 34.4080},
+    {"latitude_deg": 49.5860, "longitude_deg": 34.3550},
+    {"latitude_deg": 49.570314, "longitude_deg": 34.38011}
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "name": "Новая миссия",
+  "height_tolerance_m": 20,
+  "waypoints": [
+    {
+      "longitude_deg": 33.635302796042694,
+      "latitude_deg": 46.572188541146836,
+      "name": "Точка 1",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 33.70003782927249,
+      "latitude_deg": 46.445490148486094,
+      "name": "Точка 2",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 33.39088172513312,
+      "latitude_deg": 46.35849004853553,
+      "name": "Точка 3",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 33.395085070234046,
+      "latitude_deg": 46.24592067764124,
+      "name": "Точка 4",
+      "type": "goal",
+      "altitude_relative_m": 0,
+      "radius_m": 100
+    }
+  ]
+}

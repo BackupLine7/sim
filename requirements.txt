@@ -1,0 +1,10 @@
+PyYAML>=6.0
+Pillow==11.3.0
+pymavlink>=2.4.49
+rasterio>=1.3      # чтение DEM (обёртка над GDAL)
+pyproj>=3.6        # пересчёт координат между системами
+websockets>=12.0    # мост от физики к браузеру
+
+numpy==2.2.6      # подготовка опорных точек визуальной модели
+duckdb==1.5.5     # regional building extracts
+shapely==2.1.2    # preparation of the bundled region catalog

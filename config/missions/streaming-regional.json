@@ -1,0 +1,47 @@
+{
+  "name": "Подгрузка: региональный маршрут · 140 км",
+  "height_tolerance_m": 40,
+  "description": "Проверка загрузки соседних участков и удаления удалённых. После финиша — ожидание на круге.",
+  "waypoints": [
+    {
+      "name": "Старт",
+      "type": "transit",
+      "latitude_deg": 49.570314,
+      "longitude_deg": 34.38011,
+      "altitude_relative_m": 600,
+      "radius_m": 200
+    },
+    {
+      "name": "Участок 1",
+      "type": "transit",
+      "latitude_deg": 49.5689915,
+      "longitude_deg": 34.9341758,
+      "altitude_relative_m": 600,
+      "radius_m": 200
+    },
+    {
+      "name": "Участок 2",
+      "type": "transit",
+      "latitude_deg": 49.8384769,
+      "longitude_deg": 34.9372557,
+      "altitude_relative_m": 600,
+      "radius_m": 200
+    },
+    {
+      "name": "Участок 3",
+      "type": "transit",
+      "latitude_deg": 49.8398086,
+      "longitude_deg": 34.38011,
+      "altitude_relative_m": 600,
+      "radius_m": 200
+    },
+    {
+      "name": "Возврат и ожидание",
+      "type": "transit",
+      "latitude_deg": 49.570314,
+      "longitude_deg": 34.38011,
+      "altitude_relative_m": 600,
+      "radius_m": 200
+    }
+  ]
+}

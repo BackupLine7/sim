@@ -1,0 +1,892 @@
+:root {
+  color-scheme: dark;
+  font:
+    14px "Segoe UI",
+    sans-serif;
+  color: #e6edea;
+  background: #0c1519;
+  --accent: #b9ed9b;
+  --muted: #a7b8b1;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 64px 1fr 28px;
+  overflow: hidden;
+}
+header,
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  gap: 14px;
+}
+header {
+  border-bottom: 1px solid #ffffff20;
+}
+.brand {
+  font-size: 22px;
+  font-weight: 750;
+  letter-spacing: 3px;
+}
+.brand span {
+  color: var(--accent);
+}
+.brand small {
+  display: block;
+  font-size: 9px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: var(--muted);
+}
+.session {
+  color: var(--muted);
+  font-size: 12px;
+}
+.badge {
+  font-size: 10px;
+  border: 1px solid #ffffff30;
+  border-radius: 20px;
+  padding: 6px 10px;
+  color: var(--accent);
+}
+main {
+  min-height: 0;
+}
+.primary {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.globe {
+  position: absolute;
+  inset: 0;
+}
+.glass {
+  background: #102024dc;
+  border: 1px solid #aec4b744;
+  box-shadow: 0 8px 30px #0003;
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+}
+button,
+select,
+input {
+  font: inherit;
+}
+button,
+select {
+  border: 1px solid #ffffff30;
+  border-radius: 7px;
+  background: #172b30ed;
+  color: #e6edea;
+  padding: 9px 11px;
+  cursor: pointer;
+}
+button:hover {
+  background: #3a514c;
+}
+button.accent,
+button.selected {
+  background: var(--accent);
+  color: #152620;
+  border-color: var(--accent);
+}
+button:disabled {
+  opacity: 0.38;
+  cursor: default;
+}
+button:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.camera-toolbar {
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  right: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  z-index: 5;
+}
+.camera-toolbar label {
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.camera-toolbar select {
+  font-size: 12px;
+  min-width: 160px;
+  letter-spacing: 0;
+}
+.view-label {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--muted);
+}
+.instruments {
+  position: absolute;
+  top: 110px;
+  left: 18px;
+  display: flex;
+  pointer-events: none;
+  overflow: hidden;
+}
+.instruments div {
+  padding: 10px 16px;
+  min-width: 90px;
+}
+.instruments small {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+.instruments strong {
+  font-size: 26px;
+  font-weight: 500;
+  margin-right: 5px;
+}
+.instruments span {
+  font-size: 10px;
+  color: var(--muted);
+}
+.controls {
+  position: absolute;
+  bottom: 30px;
+  left: 18px;
+  width: 320px;
+  max-height: calc(100% - 210px);
+  padding: 14px;
+  overflow: auto;
+  z-index: 4;
+}
+.section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.section-heading h2 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+}
+#toggle-controls {
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  font-size: 15px;
+}
+#flight-flow {
+  display: flex;
+  gap: 4px;
+  margin: 10px 0;
+}
+#flight-flow span {
+  flex: 1;
+  font-size: 10px;
+  color: #93a79c;
+  border-bottom: 2px solid #3c4e45;
+  padding-bottom: 7px;
+}
+#flight-flow .active {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+#flight-instruction {
+  font-size: 11px;
+  line-height: 1.5;
+  min-height: 34px;
+  margin: 8px 0 12px;
+}
+.command-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.command-grid button {
+  font-size: 12px;
+  padding: 10px 6px;
+}
+#notice {
+  font-size: 11px;
+  line-height: 1.5;
+  border-left: 2px solid var(--accent);
+  padding-left: 9px;
+  margin: 12px 0;
+  min-height: 32px;
+  color: #c7d8cd;
+}
+.stick-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+.stick-controls small,
+.stick-controls label {
+  font-size: 9px;
+  color: var(--muted);
+}
+.stick-controls label {
+  width: 130px;
+  display: block;
+}
+.stick-controls output {
+  float: right;
+  color: var(--accent);
+}
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+  margin-top: 12px;
+}
+.dpad {
+  display: flex;
+  gap: 3px;
+  margin-top: 6px;
+}
+.dpad button {
+  padding: 8px;
+}
+.help {
+  font-size: 10px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 0;
+}
+.map-panel {
+  position: absolute;
+  bottom: 30px;
+  right: 18px;
+  width: clamp(280px, 31vw, 400px);
+  height: clamp(200px, 30vh, 300px);
+  overflow: hidden;
+  z-index: 4;
+}
+.map-title {
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 4px #000;
+}
+.map-title span {
+  margin-right: auto;
+}
+.map-title.dragging {cursor: grabbing;}
+.primary:not(.map-expanded) .map-panel {top: var(--map-top, auto);}
+.primary:not(.map-expanded) .map-panel[style*="--map-top"] {bottom: auto;}
+.map-expanded .map-title {cursor: default;}
+.map-title button {
+  padding: 6px 8px;
+  font-size: 10px;
+}
+.map-zoom {
+  position: absolute;
+  right: 12px;
+  top: 54px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.map-zoom button {
+  padding: 5px 9px;
+  font-size: 15px;
+}
+.map-zoom #auto-zoom {
+  font-size: 10px;
+}
+#map-scale {
+  position: absolute;
+  left: 12px;
+  bottom: 32px;
+  font-size: 10px;
+  background: #102024cc;
+  padding: 5px;
+  border-radius: 4px;
+  pointer-events: none;
+}
+#reticle {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  font: 30px monospace;
+  color: white;
+  pointer-events: none;
+}
+#attitude {
+  position: absolute;
+  bottom: 38px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 9px;
+  text-align: center;
+  pointer-events: none;
+}
+.attitude-dial {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid #ecf2e6;
+  background: #10272c;
+}
+.flight-instruments {display:flex; align-items:flex-start; gap:12px;}
+.heading-dial {display:block; width:120px; height:120px;}
+#heading-readout {display:block; margin-top:5px; font-size:10px;}
+@media (max-width:1100px) {.heading-dial {width:92px; height:92px;}}
+@media (max-width:600px) {.heading-dial {width:76px; height:76px;}}
+#attitude-horizon {
+  position: absolute;
+  inset: -90px;
+  background: linear-gradient(#446a87 0 50%, #756145 50%);
+  transform-origin: center;
+}
+.horizon-line {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  border-top: 2px solid white;
+}
+.pitch-lines {
+  position: absolute;
+  top: calc(50% - 43px);
+  width: 100%;
+  color: #fff9;
+  font: 12px/21px monospace;
+}
+.aircraft-reference {
+  position: absolute;
+  top: calc(50% - 14px);
+  width: 100%;
+  font: bold 26px monospace;
+  color: #d7ff9c;
+  text-shadow: 0 1px 3px #000;
+}
+.bank-reference {
+  position: absolute;
+  top: 3px;
+  width: 100%;
+  color: white;
+  font-size: 13px;
+}
+#attitude-readout {
+  display: block;
+  font-size: 9px;
+  color: #d4dfd5;
+  margin-top: 7px;
+}
+.scene-note {
+  position: absolute;
+  bottom: 6px;
+  left: 18px;
+  font-size: 9px;
+  color: #d7e4df;
+  text-shadow: 0 1px 4px black;
+  pointer-events: none;
+}
+#stream-stats {
+  position: absolute;
+  top: 195px;
+  right: 18px;
+  padding: 12px;
+  font: 11px/1.7 monospace;
+  color: #c4ffe8;
+  z-index: 4;
+  white-space: pre-wrap;
+  max-width: 380px;
+}
+footer {
+  font-size: 9px;
+  color: #98aaa1;
+}
+footer a {
+  color: #a6b9af;
+}
+footer b {
+  font-weight: 400;
+  color: var(--accent);
+}
+dialog {
+  width: min(700px, 94vw);
+  max-height: 90vh;
+  border: 1px solid #9bb8a766;
+  border-radius: 16px;
+  background: #102126;
+  color: #e6edea;
+  padding: 24px;
+  box-shadow: 0 20px 100px #0009;
+}
+dialog::backdrop {
+  background: #02080bcc;
+  backdrop-filter: blur(7px);
+}
+dialog p,
+dialog small {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+fieldset {
+  border: 1px solid #ffffff24;
+  border-radius: 9px;
+  padding: 16px;
+  margin: 18px 0;
+}
+legend {
+  color: var(--accent);
+  font-size: 13px;
+}
+fieldset label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 9px 0;
+  font-size: 12px;
+}
+fieldset input[type="number"] {
+  width: 90px;
+  border: 1px solid #ffffff30;
+  background: #203339;
+  border-radius: 5px;
+  padding: 7px;
+  color: white;
+}
+.check {
+  justify-content: flex-start !important;
+}
+.check input {
+  accent-color: var(--accent);
+}
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 20px;
+}
+.settings-grid label {
+  align-items: flex-start;
+  flex-direction: column;
+}
+.settings-grid input[type="number"] {
+  width: 100%;
+}
+#settings-notice {
+  color: var(--accent);
+  min-height: 20px;
+}
+[hidden] {
+  display: none !important;
+}
+@media (max-width: 850px) {
+  .camera-toolbar {
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .camera-toolbar select {
+    min-width: 130px;
+  }
+  .view-label {
+    display: none;
+  }
+  .controls {
+    width: 280px;
+    padding: 10px;
+  }
+  .map-panel {
+    width: 260px;
+    height: 200px;
+  }
+  .instruments div {
+    min-width: 75px;
+    padding: 8px 10px;
+  }
+  #attitude {
+    bottom: 250px;
+    left: auto;
+    right: 18px;
+    transform: none;
+  }
+  .attitude-dial {
+    width: 92px;
+    height: 92px;
+  }
+  .session {
+    display: none;
+  }
+  .camera-toolbar button {
+    font-size: 11px;
+  }
+  .controls {
+    max-height: calc(100% - 210px);
+  }
+}
+@media (max-width: 600px) {
+  body {
+    grid-template-rows: 50px 1fr 24px;
+  }
+  .camera-toolbar {
+    top: 8px;
+    left: 8px;
+    right: 8px;
+    padding: 8px;
+  }
+  .camera-toolbar select {
+    min-width: 120px;
+  }
+  .instruments {
+    top: 130px;
+    left: 8px;
+  }
+  .controls {
+    left: 8px;
+    bottom: 23px;
+    width: 240px;
+    max-height: calc(100% - 215px);
+  }
+  .map-panel {
+    right: 8px;
+    bottom: 23px;
+    width: 180px;
+    min-width: 0;
+    height: 160px;
+  }
+  .map-title span {
+    display: none;
+  }
+  .map-title {
+    left: 5px;
+    right: 5px;
+    gap: 2px;
+  }
+  .map-title button {
+    padding: 5px;
+  }
+  .map-zoom {
+    right: 5px;
+  }
+  .map-panel .cesium-viewer-bottom {
+    display: none;
+  }
+  #attitude {
+    bottom: 200px;
+    right: 8px;
+  }
+  .attitude-dial {
+    width: 76px;
+    height: 76px;
+  }
+  #attitude-readout {
+    max-width: 90px;
+  }
+  .settings-grid {
+    grid-template-columns: 1fr;
+  }
+  footer a {
+    display: none;
+  }
+  .scene-note {
+    display: none;
+  }
+}
+#map-compass {
+  position: absolute;
+  left: 12px;
+  top: 52px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 36px;
+  height: 51px;
+  padding: 4px;
+  font-size: 11px;
+  background: #102024cc;
+  border-radius: 20px;
+}
+#compass-needle {
+  display: block;
+  color: #ffb0a2;
+  font-size: 18px;
+  transform-origin: center;
+}
+.map-options {
+  position: absolute; top: 46px; left: 10px; right: 10px;
+  display: flex; flex-wrap: wrap; gap: 4px;
+}
+.map-options select, .map-options button {font-size: 10px; padding: 5px; min-width: 0;}
+#map-mission {width: 100%; font-size: 12px;}
+#map-compass, .map-zoom {top: 88px;}
+#mission-status {
+  font-size: 11px; color: #8feff0; margin-top: 10px;
+}
+#mission-status:empty {display: none;}
+.map-expanded .map-panel {right: 0; top: 0; bottom: 0; width: 50%; height: 100%; border-radius: 0;}
+.map-expanded #camera-globe {right: 50%;}
+.map-expanded .camera-toolbar {right: calc(50% + 12px); flex-wrap: wrap;}
+.map-expanded .view-label {display: none;}
+.map-expanded #reticle {left: 25%;}
+.map-expanded #attitude {left: auto; right: calc(50% + 12px); transform: none;}
+.map-expanded #stream-stats {right: calc(50% + 12px);}
+.control-dock {
+  position: absolute; bottom: 30px; left: 18px; width: 320px;
+  max-height: calc(100% - 210px); overflow-y: auto;
+  display: flex; flex-direction: column; gap: 10px; z-index: 4;
+}
+.control-dock .controls {position: static; width: 100%; max-height: none; flex-shrink: 0;}
+.mission-panel {padding: 14px; flex-shrink: 0;}
+.mission-panel summary {cursor: pointer; font-size: 15px;}
+.mission-panel label {display: block; margin: 12px 0 6px; font-size: 11px; color: var(--muted);}
+.mission-actions {display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; margin-top: 8px;}
+.mission-actions button {flex: 1; font-size: 12px; padding: 8px;}
+@media (max-width: 850px) {
+  .map-panel {width: 300px; height: 240px;}
+  .map-expanded #attitude {bottom: 250px;}
+  .control-dock {width: 280px;}
+  .map-expanded .control-dock {width: calc(50% - 24px);}
+  .map-expanded .stick-controls {flex-wrap: wrap;}
+}
+@media (max-width: 600px) {
+  .control-dock {left: 8px; bottom: 23px; width: 240px; max-height: calc(100% - 215px);}
+}
+:root .mission-guidance { position:absolute; top:100px; left:50%; transform:translateX(-50%); padding:8px 14px; pointer-events:none; display:flex; gap:24px; z-index:4; }
+.mission-guidance[hidden] { display:none; }
+.mission-guidance b { display:inline-block; font-size:24px; color:#ffd38a; margin-right:8px; }
+:root #scanner-instrument {position:absolute; left:50%; bottom:210px; transform:translateX(-50%); width:270px; padding:10px; z-index:4;}
+.scanner-toolbar {display:flex; align-items:center; justify-content:space-between; gap:8px; font-size:10px;}
+.scanner-toolbar select {width:auto; font-size:10px; padding:4px;}
+#scanner-canvas {display:block; width:100%; height:210px;}
+#scanner-readout,.scanner-help {display:block; text-align:center; font-size:10px; margin-top:5px;}
+.scanner-help {color:var(--muted);}
+#scanner-instrument[hidden],#attitude[hidden],.flight-instruments>[hidden] {display:none!important;}
+:root .map-expanded #scanner-instrument {left:25%;}
+@media (max-height:800px) {:root #scanner-instrument {bottom:195px; width:230px;} #scanner-canvas {height:160px;}}
+@media (max-width:600px) {:root #scanner-instrument {width:190px; bottom:365px;} #scanner-canvas {height:145px;}}
+.mission-camera-overlay {position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1;}
+.mission-camera-overlay[hidden] {display:none;}
+#event-log {position:absolute;left:320px;bottom:30px;z-index:26;width:min(660px,calc(100vw - 32px));max-height:calc(100dvh - 24px);box-sizing:border-box;background:#102126f5;color:#e6edea;border:1px solid #9bb8a766;border-radius:8px;padding:9px;overflow:auto;font-size:12px;}
+#event-log summary {cursor:pointer;color:#b8ed91;}
+.log-tools {display:flex;gap:6px;margin:8px 0;flex-wrap:wrap;}
+.log-tools input {flex:1;min-width:100px;}
+.log-rows {height:260px;max-height:45dvh;overflow:auto;overscroll-behavior:contain;overflow-wrap:anywhere;font:12px/1.5 monospace;}
+.log-rows > div {padding:3px 5px;border-bottom:1px solid #ffffff15;white-space:pre-wrap;}
+.log-warning {color:#ffd84d;}.log-error {color:#ff8585;}.log-log {color:#c6ded4;}
+@media(max-width:700px){#event-log{left:12px;}}
+
+#mission-editor {max-height:48vh;overflow:auto;padding:8px 0;}
+#mission-editor p {font-size:11px;line-height:1.5;color:var(--muted);}
+#mission-editor input,#mission-editor select {width:100%;box-sizing:border-box;}
+#editor-message {font-size:12px;margin-top:8px;}
+
+/* The dock is anchored to the viewport, so expanding the map cannot move it. */
+.primary {--compact-map-width:clamp(280px,31vw,400px);}
+.primary:not(.map-expanded) .map-panel {width:var(--compact-map-width);}
+#instrument-dock {
+  position:absolute;right:calc(var(--compact-map-width) + 30px);bottom:30px;
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  z-index:6;pointer-events:none;
+}
+#instrument-dock > #attitude,
+#instrument-dock > #scanner-instrument {
+  position:static;left:auto;right:auto;bottom:auto;transform:none;margin:0;
+}
+#instrument-dock > #scanner-instrument {order:-1;pointer-events:auto;}
+@media (max-width:1100px) {.primary {--compact-map-width:260px;}}
+@media (max-width:850px) {
+  .primary {--compact-map-width:300px;}
+  #instrument-dock {right:18px;bottom:282px;}
+}
+@media (max-width:600px) {
+  .primary {--compact-map-width:180px;}
+  #instrument-dock {right:8px;bottom:195px;gap:6px;}
+}
+
+#airspeed-control {display:block;font-size:12px;margin:12px 0;}
+#airspeed-target {width:90px;}
+#airspeed-feedback,#throttle-help {display:block;font-size:11px;line-height:1.4;color:var(--muted);margin:6px 0;}
+.debug-camera-help {
+  position: absolute;
+  top: 120px;
+  left: 320px;
+  right: 12px;
+  width: fit-content;
+  max-width: calc(100% - 332px);
+  padding: 6px 10px;
+  background: #10262ddd;
+  color: #ffcf55;
+  font: 12px sans-serif;
+  pointer-events: none;
+  z-index: 3;
+}
+.debug-camera-streaming {position:absolute;left:320px;top:175px;z-index:5;padding:7px 10px;background:#10262ddd;color:#c0eaa2;font-size:12px;max-width:calc(100% - 340px);}
+.debug-camera-streaming[hidden] {display:none;}
+@media (max-width: 850px) {
+  .debug-camera-help {left: 12px; top: 155px; max-width: calc(100% - 24px);}
+  .debug-camera-streaming {left:12px;top:220px;max-width:calc(100% - 44px);}
+}
+.telemetry-panel {position:absolute;top:190px;left:18px;width:284px;padding:10px;z-index:3;font-size:12px;}
+.telemetry-panel summary {cursor:pointer;margin-bottom:8px;}
+#telemetry-values {display:grid;grid-template-columns:1fr 1fr;gap:7px 12px;}
+#telemetry-values div {display:flex;flex-direction:column;gap:3px;}
+#telemetry-values span,.telemetry-panel small {opacity:.65;}
+.telemetry-panel small {display:block;margin-top:8px;font-size:10px;}
+.start-panel {padding:12px;}
+.start-panel summary {cursor:pointer;margin-bottom:8px;}
+.start-panel select,.start-panel button,.start-panel label {display:block;width:100%;margin:6px 0;}
+.start-panel input {width:100%;}
+.start-panel small {font-size:11px;opacity:.75;}
+.start-panel form[hidden] {display:none;}
+.settings-tabs {display:flex;flex-wrap:wrap;gap:6px;margin:14px 0;}
+.settings-tabs button {flex:1 0 auto;padding:9px 12px;}
+.settings-tabs [aria-selected="true"] {background:var(--accent,#b8ed91);color:#10262d;border-color:var(--accent,#b8ed91);}
+.settings-tab-body {min-height:330px;}
+.settings-tab-body > fieldset[hidden] {display:none!important;}
+.settings-tab-body > fieldset {margin:0;}
+.settings-tabs button:focus-visible {outline:2px solid #fff;outline-offset:2px;}
+@media(max-width:600px){.settings-tab-body{min-height:260px;}.settings-tabs button{font-size:12px;padding:8px;}}
+#return-editor-settings {position:absolute;top:110px;left:50%;transform:translateX(-50%);z-index:8;background:#b8ed91;color:#10262d;}
+#return-editor-settings[hidden] {display:none;}
+#settings-panel-starts .start-panel {border:0;padding:0;background:none;box-shadow:none;}
+#settings-panel-starts .start-panel > summary {display:none;}
+#settings-panel-missions #mission-editor {max-height:none;overflow:visible;min-width:0;}
+#settings-dialog {box-sizing:border-box;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;max-height:min(90dvh,calc(100dvh - var(--settings-top,0px) - 12px));}
+#settings-dialog .settings-tab-body,#settings-dialog fieldset {min-width:0;}
+#settings-dialog input,#settings-dialog select {max-width:100%;box-sizing:border-box;}
+#settings-dialog.map-editor-settings {position:fixed;inset:82px auto auto 12px;margin:0;width:min(440px,calc(100vw - 36px));max-height:calc(100dvh - var(--settings-top,82px) - 12px);box-sizing:border-box;z-index:20;}
+#settings-dialog.map-editor-settings .settings-tabs {gap:4px;}
+#settings-dialog.map-editor-settings .settings-tabs button {font-size:11px;padding:6px;}
+#settings-dialog.map-editor-settings .settings-tab-body {min-height:0;}
+#settings-dialog > .section-heading {cursor:grab;touch-action:none;user-select:none;}
+#settings-dialog > .section-heading:active {cursor:grabbing;}
+#settings-dialog > .section-heading button {cursor:pointer;}
+#aircraft-status {position:absolute;top:110px;right:calc(var(--compact-map-width,400px) + 30px);width:534px;max-width:calc(100% - var(--compact-map-width,400px) - 48px);padding:14px;z-index:6;pointer-events:none;}
+#aircraft-status header {font-size:16px;letter-spacing:.06em;}
+#aircraft-status svg {display:block;width:100%;height:auto;}
+#aircraft-status small {display:block;font-size:20px;margin-top:10px;}
+#aircraft-status .aircraft-status-note {opacity:.6;line-height:1.35;}
+#aircraft-status {max-height:calc(100vh - 210px);overflow:auto;pointer-events:auto;}
+.aircraft-detail-grid,.aircraft-servo-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:12px 0;}
+.aircraft-detail-grid div,.aircraft-servo-grid div {display:flex;flex-direction:column;gap:4px;font-size:12px;}
+.aircraft-detail-grid span,.aircraft-servo-grid span {color:var(--muted);font-size:10px;}
+#aircraft-status summary {font-size:13px;cursor:pointer;}
+#aircraft-status .aircraft-status-note {font-size:11px;}
+.aircraft-servo-grid > [hidden],#aircraft-status details[hidden] {display:none;}
+
+#render-rate {position:fixed;right:12px;bottom:10px;z-index:1000;padding:5px 9px;border-radius:5px;background:#10262de6;color:#eef5ef;font:600 13px/1.3 monospace;font-variant-numeric:tabular-nums;pointer-events:none;}
+
+/* Compact simulator toolbar; connection status stays beside the controls. */
+body {grid-template-rows:minmax(0,1fr) 28px;}
+.camera-toolbar {top:8px;left:12px;right:12px;padding:5px 8px;gap:8px;min-height:40px;flex-wrap:wrap;border-radius:7px;}
+.camera-toolbar label {flex-direction:row;align-items:center;gap:6px;letter-spacing:.3px;}
+.camera-toolbar select,.camera-toolbar button {min-height:28px;padding:4px 8px;font-size:12px;}
+.camera-toolbar select {min-width:130px;}
+.camera-toolbar .badge {padding:4px 8px;font-size:11px;}
+.instruments {top:64px;}
+.telemetry-panel {top:144px;}
+@media(max-width:900px) {
+  .camera-toolbar label {font-size:0;gap:0;}
+  .camera-toolbar .view-label {display:none;}
+  .instruments {top:100px;}
+  .telemetry-panel {top:180px;}
+}
+
+.telemetry-panel {top:64px;left:12px;width:440px;max-width:calc(100% - 24px);padding:8px;}
+#telemetry-values {grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;}
+#telemetry-values > div {min-width:0;padding:6px;border:1px solid #aec4b730;border-radius:5px;gap:4px;}
+.telemetry-panel summary,.telemetry-panel small,#telemetry-values span,#telemetry-values b {font-size:12px;font-weight:400;line-height:1.35;}
+#telemetry-values > div > span {color:var(--muted);opacity:1;}
+#telemetry-values b,#telemetry-values b span {color:#d7f4ed;opacity:1;font-variant-numeric:tabular-nums;}
+#telemetry-values .primary-reading {border-color:#b9ed9b80;}
+#telemetry-values .primary-reading b,#telemetry-values .primary-reading b span {color:var(--accent);}
+.telemetry-panel summary {color:var(--accent);}
+@media(max-width:900px) {.telemetry-panel {top:100px;}}
+
+/* Single-line readings retain the existing 12px type size. */
+.telemetry-panel {width:max-content;padding:6px;}
+.telemetry-panel summary {margin-bottom:5px;}
+#telemetry-values {grid-template-columns:repeat(3,max-content);gap:3px;}
+#telemetry-values > div {flex-direction:row;align-items:center;justify-content:space-between;gap:7px;padding:3px 5px;white-space:nowrap;}
+.telemetry-panel > small {margin-top:5px;max-width:510px;}
+@media(max-width:560px) {
+  .telemetry-panel {overflow-x:auto;}
+}
+
+.control-dock {left:12px;bottom:12px;gap:6px;}
+.control-dock .glass {border-radius:6px;box-shadow:none;}
+.control-dock .controls,.control-dock .mission-panel {padding:7px;}
+.control-dock .section-heading {gap:6px;}
+.control-dock .mission-panel summary,#toggle-controls {font-size:12px;color:var(--accent);padding:0;margin-bottom:5px;}
+.control-dock button,.control-dock select,.control-dock input {font-size:12px;padding:4px 6px;border-radius:4px;min-height:27px;}
+#map-mission {width:100%;min-width:0;}
+.control-dock .mission-actions {grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;margin-top:5px;}
+.control-dock .mission-panel label {margin:5px 0 0;}
+#mission-status {font-size:11px;margin-top:5px;line-height:1.3;}
+.control-dock .badge {font-size:11px;padding:2px 6px;border-radius:4px;}
+#flight-flow {margin:4px 0;}
+#flight-flow span {padding-bottom:3px;border-bottom-width:1px;}
+#flight-instruction {min-height:0;margin:5px 0;line-height:1.3;}
+.control-dock .command-grid {gap:4px;}
+#notice {min-height:0;margin:5px 0;padding-left:5px;line-height:1.3;}
+#notice:empty {display:none;}
+#airspeed-control {display:flex;align-items:center;gap:5px;margin:6px 0 0;font-size:12px;}
+#airspeed-control > span {flex:1;}
+#airspeed-target {width:64px;min-width:0;}
+#airspeed-feedback[hidden] {display:none;}
+
+.movable-panel {pointer-events:auto;}
+.panel-drag-handle {cursor:grab;touch-action:none;user-select:none;}
+.panel-drag-handle:active {cursor:grabbing;}
+.panel-handle {display:flex;margin-bottom:4px;}
+.panel-handle button {font:inherit;font-size:12px;color:var(--accent);border:0;background:none;padding:2px 4px;cursor:pointer;}
+#horizon-instrument.movable-panel,#compass-instrument.movable-panel {background:#102024ed;border:1px solid #aec4b744;border-radius:6px;padding:5px;}
+.movable-panel > div[hidden] {display:none!important;}
+
+.telemetry-primary {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;margin-top:5px;}
+.telemetry-primary .primary-reading {display:flex;align-items:center;justify-content:space-between;gap:7px;padding:3px 5px;white-space:nowrap;border:1px solid #b9ed9b80;border-radius:5px;color:var(--muted);font-size:12px;font-weight:400;}
+.telemetry-primary b,.telemetry-primary b span {font-size:12px;font-weight:400;color:var(--accent);font-variant-numeric:tabular-nums;}
+.telemetry-panel:not([open]) {min-width:350px;}
+
+#aircraft-status {width:480px;padding:6px;border-radius:6px;box-shadow:none;}
+#aircraft-status .panel-handle {margin-bottom:2px;}
+#aircraft-status .aircraft-detail-grid {display:flex;margin:3px 0;gap:6px;}
+#aircraft-status .aircraft-detail-grid > div {flex-direction:row;align-items:center;gap:6px;}
+#aircraft-status .aircraft-detail-grid span {font-size:12px;}
+#aircraft-status summary {font-size:11px;padding:2px 0;}
+#aircraft-status .aircraft-status-note {margin-top:3px;font-size:11px;}
+#aircraft-status .aircraft-servo-grid {gap:5px;margin:4px 0;}
+
+.mission-start-choice {display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px;margin:4px 0 6px;}
+.control-dock .mission-start-choice label {grid-column:1/-1;margin:0;}
+#start-location {width:100%;min-width:0;}
+
+#aircraft-status {width:340px;}
+
+#mission-checklist { max-height:160px; overflow-y:auto; overscroll-behavior:contain; }
+#mission-checklist label { display:flex; align-items:center; gap:6px; padding:3px 5px; margin:0; }
+#mission-checklist input { width:auto; margin:0; flex:none; accent-color:#70d99a; }
+#mission-checklist .current { color:#70d99a; background:#70d99a14; }
+#mission-checklist input:checked + span { color:#89999c; }

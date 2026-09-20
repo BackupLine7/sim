@@ -1,0 +1,9 @@
+{
+  "source_url": "https://s3.amazonaws.com/elevation-tiles-prod/skadi/N49/N49E034.hgt.gz",
+  "source_path": "data/terrain/N49E034.hgt",
+  "timeout_s": 120,
+  "grid_size": 49,
+  "credit": "Mapzen Terrain Tiles / SRTM",
+  "credit_url": "https://github.com/tilezen/joerd/blob/master/docs/attribution.md",
+  "airfield_blend_m": 200
+}

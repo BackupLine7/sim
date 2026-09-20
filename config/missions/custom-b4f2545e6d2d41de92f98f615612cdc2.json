@@ -1,0 +1,127 @@
+{
+  "name": "Берег черного моря из центра Украины",
+  "height_tolerance_m": 20,
+  "waypoints": [
+    {
+      "longitude_deg": 34.79320703262101,
+      "latitude_deg": 47.84221185489415,
+      "name": "Точка 5",
+      "type": "goal",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 34.13598107467201,
+      "latitude_deg": 45.17108424909694,
+      "name": "Точка 6",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 34.16104570152457,
+      "latitude_deg": 44.625160866342235,
+      "name": "Точка 7",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 35.037077544253385,
+      "latitude_deg": 44.87290069356282,
+      "name": "Точка 8",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 35.3908198306381,
+      "latitude_deg": 45.09409561511379,
+      "name": "Точка 9",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 35.89628011759951,
+      "latitude_deg": 45.09782353929035,
+      "name": "Точка 10",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 36.43572984157758,
+      "latitude_deg": 45.081459541037496,
+      "name": "Точка 11",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 36.96110414398457,
+      "latitude_deg": 45.111363545664005,
+      "name": "Точка 12",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 37.38051246595879,
+      "latitude_deg": 44.84064636441452,
+      "name": "Точка 13",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 37.67020065037528,
+      "latitude_deg": 44.721332039900346,
+      "name": "Точка 14",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 38.060985630763454,
+      "latitude_deg": 44.605094599554604,
+      "name": "Точка 15",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 38.24412260061803,
+      "latitude_deg": 44.42070955107043,
+      "name": "Точка 16",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 38.67726050416346,
+      "latitude_deg": 44.3192698472051,
+      "name": "Точка 17",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 38.97398009156265,
+      "latitude_deg": 44.196356716030984,
+      "name": "Точка 18",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 39.3233292926923,
+      "latitude_deg": 43.8842645720475,
+      "name": "Точка 19",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    }
+  ],
+  "route_render_step_m": 1000
+}

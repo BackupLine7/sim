@@ -1,0 +1,21 @@
+{
+  "controls": {
+    "invert_roll": false,
+    "invert_pitch": false,
+    "invert_yaw": false,
+    "roll_response": 0.65,
+    "pitch_response": 0.5,
+    "yaw_response": 0.5
+  },
+  "aircraft": {
+    "minimum_speed_kmh": 250,
+    "cruise_speed_kmh": 600,
+    "maximum_speed_kmh": 2177.1,
+    "landing_speed_kmh": 300,
+    "takeoff_altitude_m": 120,
+    "return_altitude_m": 100,
+    "maximum_bank_deg": 65,
+    "wind_speed_m_s": 0,
+    "wind_direction_deg": 0
+  }
+}

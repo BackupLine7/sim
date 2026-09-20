@@ -1,0 +1,14 @@
+{
+  "enabled": true,
+  "cache_directory": "data/terrain/streamed",
+  "url_template": "https://s3.amazonaws.com/elevation-tiles-prod/skadi/{latitude}/{tile}.hgt.gz",
+  "radius_degrees": 1,
+  "parallel_downloads": 2,
+  "timeout_s": 60,
+  "retry_s": 120,
+  "maximum_memory_tiles": 12,
+  "disk_limit_mb": 5120,
+  "activation_radius_m": 3000,
+  "airborne_height_m": 15,
+  "activation_blend_m": 3000
+}

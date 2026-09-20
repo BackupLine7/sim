@@ -1,0 +1,38 @@
+{
+  "name": "Крым короткая",
+  "height_tolerance_m": 20,
+  "waypoints": [
+    {
+      "longitude_deg": 33.13882451386205,
+      "latitude_deg": 45.427556493629666,
+      "name": "Точка 1",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 33.563625196850104,
+      "latitude_deg": 45.1268479640436,
+      "name": "Точка 2",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 33.64500282800653,
+      "latitude_deg": 44.846643640346905,
+      "name": "Точка 3",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    },
+    {
+      "longitude_deg": 33.83555924722072,
+      "latitude_deg": 44.54923271530852,
+      "name": "Точка 4",
+      "type": "transit",
+      "altitude_relative_m": 120,
+      "radius_m": 100
+    }
+  ]
+}

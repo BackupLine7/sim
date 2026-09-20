@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+globalThis.window={Cesium:{}};
+const {StartLocationsPanel}=await import('../web/start-locations.js');
+const submit={disabled:false};
+const panel={heightRequest:null,message:{},form:{elements:{latitude_deg:{value:'48.5'},longitude_deg:{value:'35.5'},elevation_asl_m:{value:'999'}},querySelector:()=>submit}};
+panel.cancelHeightRequest=()=>StartLocationsPanel.prototype.cancelHeightRequest.call(panel);
+globalThis.fetch=async()=>({ok:true,json:async()=>({ready:true,elevation_asl_m:123.456})});
+await StartLocationsPanel.prototype.loadHeight.call(panel);
+assert.equal(panel.form.elements.elevation_asl_m.value,'123.46');assert.equal(submit.disabled,false);
+let finish;
+globalThis.fetch=()=>new Promise(resolve=>{finish=resolve;});
+const request=StartLocationsPanel.prototype.loadHeight.call(panel);
+panel.cancelHeightRequest();panel.form.elements.elevation_asl_m.value='777';
+finish({ok:true,json:async()=>({ready:true,elevation_asl_m:42})});await request;
+assert.equal(panel.form.elements.elevation_asl_m.value,'777','Stale response cannot replace a newer height');
+console.log('PASS automatic height and cancelled response');

@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "cache_directory": "data/osm/buildings-v2",
+  "source_url": "https://overpass-api.de/api/interpreter",
+  "level": 13,
+  "parallel_downloads": 1,
+  "maximum_pending": 16,
+  "maximum_memory_tiles": 64,
+  "disk_limit_mb": 512,
+  "timeout_s": 60,
+  "retry_s": 120,
+  "prefetch_interval_s": 5,
+  "prefetch_seconds": 180,
+  "prefetch_step_s": 30,
+  "default_height_m": 9
+}

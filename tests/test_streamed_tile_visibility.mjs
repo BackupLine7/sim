@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+globalThis.window={Cesium:{}};
+const {WorldStreamer}=await import('../web/world/streamer.js');
+const streamer=new WorldStreamer({}, {retain_loaded_tiles:true,tile_memory_limit_mb:1});
+const tile=()=>({tile:{memory_bytes:100,visible:true,debug:false,setVisible(value,debug){this.visible=value;this.debug=Boolean(value&&debug);},destroy(){throw Error('Cached tile must stay in memory');}}});
+const active=tile(),old=tile();streamer.resident.set('active',active);streamer.resident.set('old',old);streamer.desired.add('active');
+streamer.trim();assert.equal(active.tile.visible,true);assert.equal(old.tile.visible,false);assert.equal(streamer.resident.size,2);
+streamer.setDebug(true);assert.equal(active.tile.debug,true);assert.equal(old.tile.debug,false);
+const {StartLocationsPanel}=await import('../web/start-locations.js');
+const panel={apply:{},missions:{},select:{value:'selected'},scene:{settings:{home:[0,0],heading_deg:0},physicalGroundM:0}};
+StartLocationsPanel.prototype.update.call(panel,{connected:false,restarting:false});assert.equal(panel.apply.disabled,false,'Restart must work without MAVLink');
+StartLocationsPanel.prototype.update.call(panel,{connected:false,restarting:true});assert.equal(panel.apply.disabled,true);
+console.log('PASS cached tile visibility and restart without MAVLink');

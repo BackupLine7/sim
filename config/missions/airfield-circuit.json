@@ -1,0 +1,11 @@
+{
+  "name": "Учебный круг · аэродром",
+  "waypoints": [
+    {"latitude_deg": 49.570314, "longitude_deg": 34.38011},
+    {"latitude_deg": 49.5690, "longitude_deg": 34.3990},
+    {"latitude_deg": 49.5770, "longitude_deg": 34.3990},
+    {"latitude_deg": 49.5770, "longitude_deg": 34.3710},
+    {"latitude_deg": 49.5710, "longitude_deg": 34.3710},
+    {"latitude_deg": 49.570314, "longitude_deg": 34.38011}
+  ]
+}

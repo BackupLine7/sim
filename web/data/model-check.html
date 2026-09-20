@@ -1,0 +1,5 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Проверка модели на ВПП · статическая сцена</title><link rel="stylesheet" href="/vendor/cesium/Widgets/widgets.css"><style>html,body,#camera-globe{margin:0;width:100%;height:100%}#map-globe{position:absolute;width:2px;height:2px;overflow:hidden;bottom:0}</style></head><body><div id="camera-globe"></div><div id="map-globe"></div><script src="/vendor/cesium/Cesium.js"></script><script type="module">
+import {FlightScene} from '/scene.js';
+const settings=await fetch('/data/session.json').then(r=>r.json());const scene=new FlightScene(settings);await scene.loadMap();scene.setView('chase');
+scene.update({longitude_deg:settings.home[0],latitude_deg:settings.home[1],altitude_asl_m:settings.ground_m+.382,altitude_agl_m:.382,roll_deg:0,pitch_deg:14,yaw_deg:settings.heading_deg,airspeed_kt:0});
+scene.main.camera.lookAt(scene.position,new Cesium.HeadingPitchRange((settings.heading_deg-90)*Math.PI/180,-.08,5));</script></body></html>

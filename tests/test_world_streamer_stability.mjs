@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+const {WorldStreamer}=await import('../web/world/streamer.js');
+const data={bounds:[0,0,1,1],source_level:10,buildings:[],trees:[]};
+const loader=new WorldStreamer({},{});loader.terrainRevision='new';
+const existing={signature:JSON.stringify([data.bounds,data.source_level,undefined,[],[]]),terrainRevision:'old'};
+loader.resident.set('tile',existing);let fetches=0;
+globalThis.fetch=async()=>{fetches++;return {ok:true,json:async()=>data};};
+await loader.load('tile',new AbortController());
+assert.equal(fetches,1,'Unchanged chunk must not fetch the texture');assert.equal(loader.resident.get('tile'),existing);assert.equal(existing.terrainRevision,'new');
+const host={cullingVolume:()=>({contains:()=>true})};
+const stream=new WorldStreamer(host,{bounds:[-180,-85,180,85],detail_level:10,active_radius_tiles:0,max_resident_tiles:1,retain_loaded_tiles:false});
+stream.pump=()=>{};
+const retained={tile:{boundingSphere:{},setVisible(value){this.visible=value;},destroy(){throw Error('Visible terrain was evicted');}}};
+stream.resident.set('10/1/1',retained);stream.update({longitude_deg:0,latitude_deg:0});
+assert.ok(stream.desired.has('10/1/1'));assert.equal(retained.tile.visible,true);
+console.log('PASS unchanged chunks reuse assets and visible regions stay loaded');

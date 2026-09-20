@@ -1,0 +1,108 @@
+{
+  "default": "rascal",
+  "aircraft": [
+    {
+      "id": "rascal",
+      "name": "Rascal",
+      "model": "Rascal",
+      "source": "ardupilot",
+      "description": "Учебный радиоуправляемый самолёт",
+      "maximum_commanded_airspeed_kmh": 108,
+      "basis": "Проверенное задание в JSBSim: 108 км/ч.",
+      "speeds": [
+        36,
+        79.2,
+        108,
+        46.8
+      ],
+      "visual": {
+        "uri": "/data/aircraft.glb",
+        "support_uri": "/data/aircraft-support.json"
+      }
+    },
+    {
+      "id": "c172p",
+      "name": "Cessna 172P",
+      "model": "c172p",
+      "source": "jsbsim",
+      "description": "Лёгкий одномоторный самолёт",
+      "maximum_commanded_airspeed_kmh": 166.68,
+      "basis": "Рабочее ограничение первой интеграции: 90 узлов из исходного reset01.xml; не Vne.",
+      "speeds": [
+        90,
+        150,
+        166.68,
+        110
+      ],
+      "visual": {
+        "uri": "/data/aircraft/c172p.glb",
+        "support_uri": "/data/aircraft/c172p-support.json",
+        "scale": 1,
+        "origin_up_m": 0
+      }
+    },
+    {
+      "id": "f16",
+      "name": "F-16A",
+      "model": "f16",
+      "source": "jsbsim",
+      "description": "Быстрый реактивный самолёт · автоматический взлёт проверен, посадочный профиль экспериментальный",
+      "maximum_commanded_airspeed_kmh": 2177.1,
+      "basis": "README модели: Mach 2.05 на 39000 ft, при скорости звука около 295 м/с. Не гарантируется на малой высоте.",
+      "speeds": [
+        250,
+        600,
+        2177.1,
+        300
+      ],
+      "visual": {
+        "uri": "/data/aircraft/f16.glb",
+        "support_uri": "/data/aircraft/f16-support.json",
+        "scale": 1,
+        "origin_up_m": 0
+      },
+      "parameters": {
+        "SCALING_SPEED": 166.6667,
+        "TKOFF_ROTATE_SPD": 69.4444,
+        "TKOFF_GND_PITCH": 0,
+        "TKOFF_LVL_PITCH": 8,
+        "WP_LOITER_RAD": 3000,
+        "NAVL1_PERIOD": 25,
+        "PTCH_RATE_FF": 0.906,
+        "PTCH_RATE_P": 2.039,
+        "PTCH_RATE_I": 1.529,
+        "PTCH_RATE_D": 0.107,
+        "PTCH_RATE_IMAX": 0.666,
+        "PTCH_RATE_FLTT": 2.122,
+        "PTCH2SRV_TCONST": 0.75,
+        "PTCH2SRV_RMAX_UP": 75,
+        "PTCH2SRV_RMAX_DN": 75,
+        "RLL_RATE_FF": 0.906,
+        "RLL_RATE_P": 1.88,
+        "RLL_RATE_I": 0.906,
+        "RLL_RATE_D": 0.089,
+        "RLL_RATE_IMAX": 0.666,
+        "RLL_RATE_FLTT": 3.183,
+        "RLL2SRV_TCONST": 0.5,
+        "RLL2SRV_RMAX": 75,
+        "TECS_TIME_CONST": 5,
+        "TECS_PTCH_DAMP": 1,
+        "TECS_THR_DAMP": 1,
+        "TECS_CLMB_MAX": 180,
+        "TECS_SINK_MIN": 44,
+        "TECS_SINK_MAX": 14.5,
+        "TECS_SPDWEIGHT": 0,
+        "TRIM_THROTTLE": 33,
+        "TKOFF_DIST": 8000,
+        "PTCH_LIM_MIN_DEG": -25,
+        "TKOFF_OPTIONS": 1
+      },
+      "initial_properties": {
+        "fcs/fbw-override": 1,
+        "gear/gear-cmd-norm": 1
+      },
+      "idle_parking_brake": true,
+      "external_flight_control": true
+    }
+  ]
+}

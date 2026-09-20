@@ -1,0 +1,15 @@
+{
+  "release": "2026-08-19.0",
+  "index_level": 14,
+  "directory": "data/osm/regions",
+  "memory_limit": "512MB",
+  "threads": 1,
+  "batch_size": 2000,
+  "http_timeout_s": 30,
+  "http_retries": 2,
+  "catalog_url": "https://stac.overturemaps.org/{release}/{theme}/{type}/collection.json",
+  "catalog_workers": 4,
+  "region_catalog": "config/building-region-catalog.json",
+  "boundary_api": "https://www.geoboundaries.org/api/current/gbOpen/{country}/ADM1/",
+  "country_boundaries_url": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_110m_admin_0_countries.geojson"
+}

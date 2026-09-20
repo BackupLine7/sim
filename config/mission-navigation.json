@@ -1,0 +1,21 @@
+{
+  "radius_m": 100,
+  "acceptance_radius_multiplier": 2,
+  "height_tolerance_m": 20,
+  "target_timeout_s": 5,
+  "loiter_radius_fraction": 0.5,
+  "flythrough": {"bank_deg": 30, "turn_radius_factor": 3, "minimum_extension_m": 1000},
+  "route_render_step_m": 1000,
+  "terrain_clearance": {
+    "clearance_m": 150,
+    "sample_step_m": 250,
+    "corridor_half_width_m": 1000
+  },
+  "altitude_recovery": {
+    "bank_deg": 30,
+    "vertical_speed_m_s": 5,
+    "approach_margin_s": 10,
+    "settled_climb_m_s": 2,
+    "settled_duration_s": 5
+  }
+}

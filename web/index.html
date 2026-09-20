@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Flight Lab · Полётное занятие</title>
+    <link rel="stylesheet" href="/vendor/cesium/Widgets/widgets.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/building-regions.css" />
+  </head>
+  <body>
+    <main>
+      <section class="primary">
+        <div id="camera-globe" class="globe"></div>
+        <div class="camera-toolbar glass">
+          <label
+            >КАМЕРА<select id="camera-position">
+              <option value="cockpit">Из носа</option>
+              <option value="chase">За самолётом</option>
+              <option value="orbit">Осмотр · debug</option>
+            </select></label
+          >
+          <label
+            >ИЗОБРАЖЕНИЕ<select id="camera-sensor">
+              <option value="normal">Обычное</option>
+              <option value="night">Ночное видение</option>
+              <option value="thermal">Тепловизор · Ч/Б</option>
+              <option value="thermal_soft">Тепловизор · мягкий</option>
+            </select></label
+          >
+          <button id="day-night">☀ День → Ночь</button
+          ><button id="open-settings">⚙ Настройки</button>
+          <span id="connection" class="badge">Ожидание физики</span>
+          <span id="view-name" class="view-label">Камера из носа</span>
+        </div>
+        <div id="reticle">┼</div>
+        <details class="telemetry-panel glass" open>
+          <summary title="— нет данных · GPS fix: 3 — 3D, 4 — DGPS, 5/6 — RTK. Батарея в SITL моделируется.">Полёт и телеметрия
+            <span class="telemetry-primary">
+            <span class="primary-reading"><span>Скорость</span><b><span id="speed">—</span> км/ч</b></span>
+            <span class="primary-reading"><span>Высота AGL</span><b><span id="altitude">—</span> м</b></span>
+            <span class="primary-reading"><span>Курс</span><b><span id="heading">—</span>°</b></span>
+            </span>
+          </summary>
+          <div id="telemetry-values"></div>
+        </details>
+        <aside id="aircraft-status" class="glass" aria-label="Состояние систем самолёта"></aside>
+        <div class="control-dock">
+        <details class="glass start-panel">
+          <summary>Точка старта</summary>
+          <select id="start-location" aria-label="Точка старта"></select>
+          <button id="start-apply" disabled>Начать здесь · перезапуск самолёта</button>
+          <button id="start-new">+ Новая точка старта</button><button id="start-edit" type="button">Редактировать выбранную</button><button id="start-delete" type="button">Удалить выбранную площадку</button>
+          <small>«Начать здесь» завершает текущий полёт и размещает самолёт на учебной ВПП выбранной площадки.</small>
+          <form id="start-form" hidden>
+            <label>Название<input name="name" required maxlength="120" /></label>
+            <button id="start-pick" type="button">Указать на карте</button>
+            <label>Широта, °<input name="latitude_deg" type="number" min="-89.999999" max="89.999999" step="any" required /></label>
+            <label>Долгота, °<input name="longitude_deg" type="number" min="-180" max="180" step="any" required /></label>
+            <label>Высота площадки над уровнем моря, м<input name="elevation_asl_m" type="number" step="any" required /></label>
+            <label>Курс старта, °<input name="heading_deg" type="number" min="0" max="359.999999" step="any" required /></label>
+            <button type="submit">Сохранить площадку</button><button id="start-cancel" type="button">Отмена</button>
+          </form>
+          <small id="start-message" role="status"></small>
+        </details>
+        <details class="mission-panel glass" open>
+          <summary>Миссия</summary>
+          <select id="map-mission" aria-label="Полётная миссия"><option value="">Без миссии</option></select>
+          <div class="mission-actions">
+            <button id="mission-fit" disabled title="Показать весь маршрут">⌖ На карте</button>
+            <button id="mission-reload" title="Перечитать файлы миссий">↻ Обновить</button>
+            <button id="mission-follow" disabled>▶ Следовать</button>
+          </div>
+          <div class="mission-actions"><button id="mission-new">＋ Новая</button><button id="mission-edit" disabled>✎ Редактировать</button><button id="mission-delete" type="button">Удалить выбранную миссию</button></div>
+          <div id="mission-checklist" aria-label="Точки миссии"></div>
+          <section id="mission-editor" hidden>
+            <label>Название миссии<input id="editor-name" required maxlength="200"></label>
+            <p>Клик по пустому месту карты — добавить точку. Точку можно перетащить. Карту — тянуть за свободное место.</p>
+            <label>Точка маршрута<select id="editor-point"></select></label>
+            <div id="editor-fields">
+              <label>Название точки<input id="editor-point-name"></label>
+              <label>Тип<select id="editor-type"><option value="transit">Пролёт</option><option value="goal">Цель</option><option value="land">Посадка</option></select></label>
+              <label>Высота над аэродромом, м<input id="editor-altitude" type="number" min="1" step="any" required></label>
+              <label>Радиус принятия, м<input id="editor-radius" type="number" min="1" step="any" required></label>
+              <button id="editor-up" type="button">↑ Раньше</button>
+              <button id="editor-down" type="button">↓ Позже</button>
+              <button id="editor-delete">Удалить точку</button>
+            </div>
+            <p>Завершающая «Посадка» запускает посадку на домашнюю ВПП. После «Пролёта» — круг ожидания.</p>
+            <div class="mission-actions"><button id="editor-save">Сохранить</button><button id="editor-cancel">Отменить</button></div>
+            <div id="editor-message" role="status"></div>
+          </section>
+          <div id="mission-status" role="status"></div>
+          <label><input id="mission-zones" type="checkbox" checked> Точки в камере</label>
+        </details>
+        <section class="controls glass">
+          <div class="section-heading">
+            <button id="toggle-controls">Управление ▾</button
+            ><span id="mode" class="badge">—</span>
+          </div>
+          <div id="control-body">
+            <div id="flight-flow">
+              <span data-phase="ready">На ВПП</span
+              ><span data-phase="takeoff">Взлёт</span
+              ><span data-phase="flight">Полёт</span
+              ><span data-phase="landing">Посадка</span>
+            </div>
+            <p id="flight-instruction">Подготовка самолёта…</p>
+            <div class="command-grid">
+              <button data-action="restart" id="restart-session">
+                ↺ Сбросить полёт</button
+              ><button data-action="takeoff" class="accent">↗ Взлететь</button
+              ><button data-action="manual">✥ Ручной режим</button
+              ><button data-action="loiter">↻ Круг</button
+              ><button data-action="land" class="accent">↘ Посадить</button
+              ><button data-action="return">⌂ Вернуться</button>
+            </div>
+            <div id="notice" role="status">Соединение с симулятором…</div>
+            <label id="airspeed-control"><span>Скорость AP, км/ч</span>
+              <input id="airspeed-target" type="number" min="0" step="any" required>
+              <button id="airspeed-apply">Задать</button>
+              <small id="airspeed-feedback" hidden></small>
+            </label>
+            <div hidden>
+            <small id="throttle-help"></small>
+            <div class="stick-controls">
+              <div>
+                <small>КРЕН / ТАНГАЖ</small>
+                <div class="dpad">
+                  <button data-stick="up">↑</button
+                  ><button data-stick="left">←</button
+                  ><button data-stick="down">↓</button
+                  ><button data-stick="right">→</button>
+                </div>
+              </div>
+              <label
+                >ГАЗ · ручной режим <output id="throttle-value">65%</output
+                ><input id="throttle" type="range" min="0" max="100" value="65"
+              /></label>
+            </div>
+            <p class="help" id="key-help">
+              W/S тангаж · A/D крен · Z/C рыскание<br />Q/E газ · Space —
+              автопилот
+            </p>
+            </div>
+          </div>
+        </section>
+        </div>
+        <div id="instrument-dock">
+        <div id="attitude" class="glass">
+          <div class="flight-instruments">
+          <div id="horizon-instrument">
+          <div class="attitude-dial">
+            <div id="attitude-horizon">
+              <div class="horizon-line"></div>
+              <div class="pitch-lines">
+                ─ 20 ─<br />─ 10 ─<br />──────<br />─ 10 ─<br />─ 20 ─
+              </div>
+            </div>
+            <div class="aircraft-reference">━ ━</div>
+            <div class="bank-reference">▼</div>
+          </div>
+          <small id="attitude-readout">Авиагоризонт</small>
+          </div>
+          <div id="compass-instrument" class="heading-instrument">
+            <svg class="heading-dial" viewBox="0 0 120 120" role="img" aria-label="Компас курса самолёта">
+              <circle cx="60" cy="60" r="57" fill="#10262d" stroke="#ecf2e6" stroke-width="2"/>
+              <g id="heading-rose" fill="#e5efed" text-anchor="middle" font-size="12">
+                <text x="60" y="23" fill="#ff7777">N</text><text x="102" y="64">E</text>
+                <text x="60" y="108">S</text><text x="18" y="64">W</text>
+                <path d="M28 28l6 6 M86 86l6 6 M28 92l6-6 M86 34l6-6" stroke="#8da8ae"/>
+              </g>
+              <path d="M60 38L69 76L60 68L51 76Z" fill="#f3df78"/>
+              <path d="M55 2L60 10L65 2" fill="#f3df78"/>
+            </svg>
+            <small id="heading-readout">Курс —</small>
+          </div>
+          </div>
+        </div>
+        <section id="scanner-instrument" class="glass" aria-label="3D-сканер миссии">
+          <div class="scanner-toolbar"><strong>3D-СКАНЕР</strong>
+            <select id="scanner-range" aria-label="Дальность сканера" data-minimum-range-m="200">
+              <option value="auto">Автомасштаб</option><option value="500">500 м</option>
+              <option value="2000">2 км</option><option value="10000">10 км</option><option value="50000">50 км</option>
+            </select>
+          </div>
+          <canvas id="scanner-canvas" aria-label="Самолёт в центре; линии от точек показывают высоту над плоскостью самолёта"></canvas>
+          <small id="scanner-readout">Ожидание телеметрии</small>
+          <small class="scanner-help">Пустая точка ↗ — вне дальности</small>
+        </section>
+        </div>
+        <section class="map-panel glass">
+          <div id="map-globe" class="globe"></div>
+          <div class="map-title" tabindex="0" aria-label="Переместить карту вверх или вниз" title="Перетащите вверх или вниз · клавиши ↑ ↓">
+            <span>↕ КАРТА</span><button id="center">На самолёт</button>
+            <button id="map-expand" aria-label="Развернуть карту на половину экрана" aria-expanded="false">⛶</button>
+          </div>
+          <div class="map-options">
+            <select id="map-orientation" aria-label="Ориентация карты">
+              <option value="north">Север ↑</option>
+              <option value="drone">По курсу дрона ↑</option>
+            </select>
+          </div>
+          <div class="map-zoom">
+            <button id="zoom-in" aria-label="Приблизить карту">+</button
+            ><button id="zoom-out" aria-label="Отдалить карту">−</button
+            ><button id="auto-zoom" class="selected">Авто</button>
+          </div>
+          <button
+            id="map-compass"
+            title="Север сверху"
+            aria-label="Компас: север сверху"
+          >
+            <span>N</span><span id="compass-needle">▲</span>
+          </button>
+          <div id="map-scale">Автомасштаб</div>
+        </section>
+        <div class="scene-note">
+          Рельеф Mapzen / SRTM · исторические снимки · деревья © OpenStreetMap contributors (ODbL) и условные · сенсоры имитируются
+        </div>
+      </section>
+    </main>
+    <footer>
+      <span>JSBSim + ArduPilot <b id="engine-status">· нет телеметрии</b></span
+      ><span id="render-rate">—</span
+      ><a href="https://s2maps.eu" target="_blank" rel="noreferrer"
+        >Sentinel-2 cloudless · EOX · CC BY 4.0</a
+      ><a
+        href="https://www.openstreetmap.org/copyright"
+        target="_blank"
+        rel="noreferrer"
+        >© OSM · ODbL</a
+      >
+    </footer>
+    <dialog id="settings-dialog">
+      <form id="settings-form">
+        <div class="section-heading">
+          <h2>Настройки симулятора</h2>
+          <button
+            type="button"
+            id="close-settings"
+            aria-label="Закрыть настройки"
+          >
+            ✕
+          </button>
+        </div>
+        <p>
+          Управление применяется сразу. Параметры самолёта и ветер — после
+          рестарта.
+        </p>
+        <fieldset>
+          <legend>Отображение карты</legend>
+          <label class="check"><input id="settings-show-compass" type="checkbox" checked /> Показывать компас</label>
+          <label class="check"><input id="settings-show-horizon" type="checkbox" checked /> Показывать авиагоризонт</label>
+          <label class="check"><input id="settings-show-scanner" type="checkbox" checked /> Показывать 3D-сканер</label>
+          <label class="check"><input id="settings-map-grid" type="checkbox" checked /> Показывать сетку участков карты</label>
+          <small>Применяется сразу и сохраняется в этом браузере.</small>
+          <label class="check"><input id="settings-retain-tiles" type="checkbox" /> Сохранять загруженные участки до лимита памяти</label>
+          <label>Лимит памяти участков, МБ<input id="settings-tile-memory" type="number" min="0" step="any" required /></label>
+          <label>Радиус подгрузки, квадратов<input id="settings-tile-radius" type="number" min="0" step="1" required /></label>
+          <label><input id="settings-roadside" type="checkbox" checked /> Процедурные лесополосы вдоль дорог</label>
+          <label>Случайные деревья, максимум на квадрат<input id="settings-tree-density" type="number" min="0" step="1" required /></label>
+          <small>Ряды и отдельные деревья OSM добавляются сверх этого количества. 0 — скрыть все деревья. Изменение пересоздаёт участки.</small>
+          <small>Радиус 1 — 3 × 3 участка, 2 — 5 × 5. Память оценивается по изображениям и геометрии; текущий радиус сохраняется даже при превышении лимита.</small>
+        </fieldset>
+        <fieldset>
+          <legend>Рельеф и кеш</legend>
+          <label><input id="terrain-download-enabled" type="checkbox" /> Загружать рельеф из интернета во время полёта</label>
+          <button id="terrain-cache-clear" type="button">Очистить кеш высот на диске</button>
+          <small id="terrain-cache-status" role="status"></small>
+          <small>Текущие высоты сохраняются в памяти до смены района или перезапуска. Скачивание можно отключить для работы офлайн. Кеш снимков эта кнопка не удаляет.</small>
+        </fieldset>
+        <fieldset>
+          <legend>Управление</legend>
+          <p>WASD и стрелки работают одновременно.</p>
+          <label class="check"><input name="invert_roll" type="checkbox" /> Инверсия крена</label>
+          <label class="check"><input name="invert_pitch" type="checkbox" /> Инверсия тангажа</label>
+          <label class="check"><input name="invert_yaw" type="checkbox" /> Инверсия рыскания</label>
+          <label>Чувствительность крена<input name="roll_response" type="number" min="0.1" max="1" step="0.05" required /></label>
+          <label>Чувствительность тангажа<input name="pitch_response" type="number" min="0.1" max="1" step="0.05" required /></label>
+          <label>Чувствительность рыскания<input name="yaw_response" type="number" min="0.1" max="1" step="0.05" required /></label>
+        </fieldset>
+        <fieldset>
+          <legend>Самолёт и автопилот</legend>
+          <div class="settings-grid">
+            <label
+              >Минимальная скорость, км/ч<input
+                name="minimum_speed_kmh"
+                type="number"
+                min="0"
+                step="any"
+                required /></label
+            ><label
+              >Крейсерское задание AP, км/ч<input
+                name="cruise_speed_kmh"
+                type="number"
+                min="0"
+                step="any"
+                required /></label
+            ><label
+              >Предел задания скорости AP, км/ч<input
+                title="Верхний предел для автопилота, не заданная скорость и не мощность двигателя" name="maximum_speed_kmh"
+                type="number"
+                min="0"
+                step="any"
+                required /></label
+            ><label
+              >Посадочная скорость, км/ч<input
+                name="landing_speed_kmh"
+                type="number"
+                min="0"
+                step="any"
+                required /></label
+            ><label
+              >Высота взлёта, м<input
+                name="takeoff_altitude_m"
+                type="number"
+                min="30"
+                max="300"
+                step="1"
+                required /></label
+            ><label
+              >Высота возврата, м<input
+                name="return_altitude_m"
+                type="number"
+                min="30"
+                max="300"
+                step="1"
+                required /></label
+            ><label
+              >Максимальный крен, °<input
+                name="maximum_bank_deg"
+                type="number"
+                min="15"
+                max="65"
+                step="1"
+                required /></label
+            ><label
+              >Ветер, м/с<input
+                name="wind_speed_m_s"
+                type="number"
+                min="0"
+                max="15"
+                step="0.5"
+                required /></label
+            ><label
+              >Направление ветра, °<input
+                name="wind_direction_deg"
+                type="number"
+                min="0"
+                max="359"
+                step="1"
+                required
+            /></label>
+          </div>
+          <small
+            >Скорости задают ограничения и цели автопилота. Это не искусственный
+            предел физической скорости при пикировании.</small
+          >
+        </fieldset>
+        <p id="settings-notice" role="status"></p>
+        <button type="submit" class="accent">Сохранить настройки</button>
+      </form>
+    </dialog>
+    <script src="/vendor/cesium/Cesium.js"></script>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

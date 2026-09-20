@@ -1,0 +1,4 @@
+{
+  "retain_loaded_tiles": false,
+  "tile_memory_limit_mb": 256
+}

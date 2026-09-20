@@ -1,0 +1,7 @@
+# Local terrain for the sightseeing mission
+
+One GeoTIFF supplies physical heights and streamed visual grids. DEM heights remain in the existing simulator ASL convention; no claim of GPS ellipsoid accuracy. Airport strip is flattened to its configured elevation in the shared sampler.
+
+Load: five 10 Hz physics readers; two bounded chunk workers; typically 25 resident chunks. Grid is 49 x 49 samples, typed contiguous arrays, generated only on chunk load. Budget: < 1 MB extra per chunk, one extra draw call per view/chunk, zero terrain work per animation frame, < 200 ms chunk generation on this host. Weakest client hardware remains unmeasured. Scopes: terrain_grid_ms (server), terrain-mesh (browser). All retained arrays belong to streamed chunks and are disposed with them. No new background queue. Bilinear source sampling is deterministic; existing fixed-rate feeder owns physical updates. Tests cover flat fallback, altitude consistency, tile edges and real slope range. Profile representative chunks before delivery.
+
+Measured on host: 49 x 49 grid 47 ms; adjacent tile borders identical; airport sample 153 m; Ivanova slope tile 80.75–160 m. 35 Python tests and 3 Node suites pass. Offline scenic imagery coverage: 60 level-14 tiles. Buildings: 32,229 OSM ways with illustrative fallback heights. Preparation: `python scripts/prepare_terrain.py`, `python scripts/prepare_scenic_mission.py`. Detailed geometry is rendered in the flight view; navigation map remains a 2D overview. Native DEM coverage: N49E034.

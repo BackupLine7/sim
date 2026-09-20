@@ -1,0 +1,13 @@
+{
+  "name": "Проверка удаления · временная",
+  "waypoints": [
+    {
+      "latitude_deg": 44.95,
+      "longitude_deg": 34.1
+    },
+    {
+      "latitude_deg": 44.96,
+      "longitude_deg": 34.11
+    }
+  ]
+}

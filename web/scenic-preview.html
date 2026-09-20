@@ -1,0 +1,12 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><title>Полтава · обзор склонов</title><link rel="stylesheet" href="/vendor/cesium/Widgets/widgets.css"><style>html,body,#camera-globe{margin:0;width:100%;height:100%;overflow:hidden}#map-globe{position:absolute;width:1px;height:1px;visibility:hidden}aside{position:absolute;top:16px;left:16px;padding:16px;background:#14282ee8;color:white;font:16px system-ui;z-index:5}a{color:#bde99d}</style><div id="camera-globe"></div><div id="map-globe"></div><aside><b>Иванова гора и долина Ворсклы</b><p>Обзор местности без управления самолётом. Мышью можно вращать и приближать.</p><p id="status">Загрузка местности…</p><a href="/">Вернуться к полётной миссии</a><p>Рельеф: <a href="https://github.com/tilezen/joerd/blob/master/docs/attribution.md">Mapzen / SRTM</a> · здания и деревья: © OpenStreetMap</p></aside><script src="/vendor/cesium/Cesium.js"></script><script type="module">
+import {FlightScene} from './scene.js';
+const settings=await fetch('/data/session.json').then(r=>r.json());
+const scene=new FlightScene(settings);await scene.loadMap();
+scene.aircraft.show=false;scene.marker.show=false;scene.world.setDebug(false);
+const mission=await fetch('/api/missions').then(r=>r.json());
+const point=mission.missions.find(m=>m.id==='scenic-poltava').waypoints.find(p=>p.name.includes('Иванова'));
+scene.world.update(point);scene.world.configure({active_radius_tiles:scene.worldSettings.active_radius_tiles});
+scene.main.camera.setView({destination:Cesium.Cartesian3.fromDegrees(point.longitude_deg+0.019,point.latitude_deg-0.003,280),orientation:{heading:Cesium.Math.toRadians(280),pitch:-0.16,roll:0}});
+const status=document.getElementById('status');
+const timer=setInterval(()=>{status.textContent=`Загружено участков: ${scene.world.resident.size}; ожидается: ${scene.world.pending.size}`;if(!scene.world.pending.size)clearInterval(timer)},1000);
+</script></html>

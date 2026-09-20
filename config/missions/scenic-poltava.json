@@ -1,0 +1,87 @@
+{
+  "name": "Обзор: Полтава, холмы и лесополосы",
+  "description": "Аэродром → лесополосы → Полтава → Иванова гора → долина Ворсклы → возврат. Высота 180 м над аэродромом; после финиша — круг ожидания. Рекомендуется обычное изображение и камера за самолётом.",
+  "height_tolerance_m": 35,
+  "waypoints": [
+    {
+      "name": "Старт · аэродром",
+      "type": "transit",
+      "latitude_deg": 49.570314,
+      "longitude_deg": 34.38011,
+      "altitude_relative_m": 180,
+      "radius_m": 150
+    },
+    {
+      "name": "Лесополосы OSM",
+      "type": "transit",
+      "latitude_deg": 49.5988209,
+      "longitude_deg": 34.4702169,
+      "altitude_relative_m": 180,
+      "radius_m": 150
+    },
+    {
+      "name": "Западная Полтава",
+      "type": "transit",
+      "latitude_deg": 49.582,
+      "longitude_deg": 34.52,
+      "altitude_relative_m": 180,
+      "radius_m": 150
+    },
+    {
+      "name": "Городские кварталы",
+      "type": "transit",
+      "latitude_deg": 49.593,
+      "longitude_deg": 34.551,
+      "altitude_relative_m": 180,
+      "radius_m": 150
+    },
+    {
+      "name": "Иванова гора · склон",
+      "type": "transit",
+      "latitude_deg": 49.581875,
+      "longitude_deg": 34.568934,
+      "altitude_relative_m": 180,
+      "radius_m": 150
+    },
+    {
+      "name": "Долина Ворсклы",
+      "type": "transit",
+      "latitude_deg": 49.577,
+      "longitude_deg": 34.591,
+      "altitude_relative_m": 180,
+      "radius_m": 150
+    },
+    {
+      "name": "Восточный обзор склонов",
+      "type": "transit",
+      "latitude_deg": 49.602,
+      "longitude_deg": 34.591,
+      "altitude_relative_m": 180,
+      "radius_m": 150
+    },
+    {
+      "name": "Возврат над городом",
+      "type": "transit",
+      "latitude_deg": 49.61,
+      "longitude_deg": 34.55,
+      "altitude_relative_m": 180,
+      "radius_m": 150
+    },
+    {
+      "name": "Поля и придорожные посадки",
+      "type": "transit",
+      "latitude_deg": 49.605,
+      "longitude_deg": 34.445,
+      "altitude_relative_m": 180,
+      "radius_m": 150
+    },
+    {
+      "name": "Аэродром · ожидание",
+      "type": "transit",
+      "latitude_deg": 49.570314,
+      "longitude_deg": 34.38011,
+      "altitude_relative_m": 180,
+      "radius_m": 150
+    }
+  ]
+}

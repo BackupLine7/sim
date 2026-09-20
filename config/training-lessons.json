@@ -1,0 +1,894 @@
+{
+  "lessons": [
+    {
+      "id": "lesson-01",
+      "name": "01. Первый круг",
+      "coordinate_system": "fictional_local",
+      "start": {
+        "x_m": 0,
+        "y_m": 0,
+        "height_m": 0
+      },
+      "height_tolerance_m": 15,
+      "demo_speed_m_s": 60,
+      "waypoints": [
+        {
+          "type": "takeoff",
+          "name": "Ворота 1",
+          "x_m": 0,
+          "y_m": 0,
+          "height_m": 70,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 2",
+          "x_m": 173,
+          "y_m": 522,
+          "height_m": 90,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 3",
+          "x_m": 805,
+          "y_m": 839,
+          "height_m": 120,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 4",
+          "x_m": 1280,
+          "y_m": 524,
+          "height_m": 100,
+          "radius_m": 65
+        },
+        {
+          "type": "goal",
+          "name": "Финишная площадка 1",
+          "x_m": 1265,
+          "y_m": -156,
+          "height_m": 90,
+          "radius_m": 65
+        }
+      ]
+    },
+    {
+      "id": "lesson-02",
+      "name": "02. Северные ворота",
+      "coordinate_system": "fictional_local",
+      "start": {
+        "x_m": 0,
+        "y_m": 0,
+        "height_m": 0
+      },
+      "height_tolerance_m": 15,
+      "demo_speed_m_s": 60,
+      "waypoints": [
+        {
+          "type": "takeoff",
+          "name": "Ворота 1",
+          "x_m": 0,
+          "y_m": 0,
+          "height_m": 80,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 2",
+          "x_m": 92,
+          "y_m": 573,
+          "height_m": 100,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 3",
+          "x_m": 697,
+          "y_m": 1010,
+          "height_m": 130,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 4",
+          "x_m": 1016,
+          "y_m": 1332,
+          "height_m": 150,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 5",
+          "x_m": 1245,
+          "y_m": 761,
+          "height_m": 110,
+          "radius_m": 65
+        },
+        {
+          "type": "goal",
+          "name": "Финишная площадка 2",
+          "x_m": 1344,
+          "y_m": 50,
+          "height_m": 100,
+          "radius_m": 65
+        }
+      ]
+    },
+    {
+      "id": "lesson-03",
+      "name": "03. Речной изгиб",
+      "coordinate_system": "fictional_local",
+      "start": {
+        "x_m": 0,
+        "y_m": 0,
+        "height_m": 0
+      },
+      "height_tolerance_m": 15,
+      "demo_speed_m_s": 60,
+      "waypoints": [
+        {
+          "type": "takeoff",
+          "name": "Ворота 1",
+          "x_m": 0,
+          "y_m": 0,
+          "height_m": 90,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 2",
+          "x_m": 0,
+          "y_m": 610,
+          "height_m": 110,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 3",
+          "x_m": 555,
+          "y_m": 1166,
+          "height_m": 140,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 4",
+          "x_m": 1166,
+          "y_m": 999,
+          "height_m": 120,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 5",
+          "x_m": 1665,
+          "y_m": 777,
+          "height_m": 160,
+          "radius_m": 65
+        },
+        {
+          "type": "goal",
+          "name": "Финишная площадка 3",
+          "x_m": 1388,
+          "y_m": 278,
+          "height_m": 110,
+          "radius_m": 65
+        }
+      ]
+    },
+    {
+      "id": "lesson-04",
+      "name": "04. Лесная дуга",
+      "coordinate_system": "fictional_local",
+      "start": {
+        "x_m": 0,
+        "y_m": 0,
+        "height_m": 0
+      },
+      "height_tolerance_m": 15,
+      "demo_speed_m_s": 60,
+      "waypoints": [
+        {
+          "type": "takeoff",
+          "name": "Ворота 1",
+          "x_m": 0,
+          "y_m": 0,
+          "height_m": 70,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 2",
+          "x_m": -102,
+          "y_m": 633,
+          "height_m": 90,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 3",
+          "x_m": 380,
+          "y_m": 1300,
+          "height_m": 120,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 4",
+          "x_m": 1041,
+          "y_m": 1230,
+          "height_m": 100,
+          "radius_m": 65
+        },
+        {
+          "type": "goal",
+          "name": "Финишная площадка 4",
+          "x_m": 1391,
+          "y_m": 520,
+          "height_m": 90,
+          "radius_m": 65
+        }
+      ]
+    },
+    {
+      "id": "lesson-05",
+      "name": "05. Три ориентира",
+      "coordinate_system": "fictional_local",
+      "start": {
+        "x_m": 0,
+        "y_m": 0,
+        "height_m": 0
+      },
+      "height_tolerance_m": 15,
+      "demo_speed_m_s": 60,
+      "waypoints": [
+        {
+          "type": "takeoff",
+          "name": "Ворота 1",
+          "x_m": 0,
+          "y_m": 0,
+          "height_m": 80,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 2",
+          "x_m": -211,
+          "y_m": 637,
+          "height_m": 100,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 3",
+          "x_m": 176,
+          "y_m": 1408,
+          "height_m": 130,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 4",
+          "x_m": 331,
+          "y_m": 1909,
+          "height_m": 150,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 5",
+          "x_m": 871,
+          "y_m": 1445,
+          "height_m": 110,
+          "radius_m": 65
+        },
+        {
+          "type": "goal",
+          "name": "Финишная площадка 5",
+          "x_m": 1352,
+          "y_m": 769,
+          "height_m": 100,
+          "radius_m": 65
+        }
+      ]
+    },
+    {
+      "id": "lesson-06",
+      "name": "06. Высотная ступень",
+      "coordinate_system": "fictional_local",
+      "start": {
+        "x_m": 0,
+        "y_m": 0,
+        "height_m": 0
+      },
+      "height_tolerance_m": 15,
+      "demo_speed_m_s": 60,
+      "waypoints": [
+        {
+          "type": "takeoff",
+          "name": "Ворота 1",
+          "x_m": 0,
+          "y_m": 0,
+          "height_m": 90,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 2",
+          "x_m": 221,
+          "y_m": 666,
+          "height_m": 110,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 3",
+          "x_m": 1026,
+          "y_m": 1070,
+          "height_m": 140,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 4",
+          "x_m": 1632,
+          "y_m": 668,
+          "height_m": 120,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 5",
+          "x_m": 2096,
+          "y_m": 246,
+          "height_m": 160,
+          "radius_m": 65
+        },
+        {
+          "type": "goal",
+          "name": "Финишная площадка 6",
+          "x_m": 1613,
+          "y_m": -199,
+          "height_m": 110,
+          "radius_m": 65
+        }
+      ]
+    },
+    {
+      "id": "lesson-07",
+      "name": "07. Дальний маяк",
+      "coordinate_system": "fictional_local",
+      "start": {
+        "x_m": 0,
+        "y_m": 0,
+        "height_m": 0
+      },
+      "height_tolerance_m": 15,
+      "demo_speed_m_s": 60,
+      "waypoints": [
+        {
+          "type": "takeoff",
+          "name": "Ворота 1",
+          "x_m": 0,
+          "y_m": 0,
+          "height_m": 70,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 2",
+          "x_m": 117,
+          "y_m": 722,
+          "height_m": 90,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 3",
+          "x_m": 879,
+          "y_m": 1273,
+          "height_m": 120,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 4",
+          "x_m": 1569,
+          "y_m": 959,
+          "height_m": 100,
+          "radius_m": 65
+        },
+        {
+          "type": "goal",
+          "name": "Финишная площадка 7",
+          "x_m": 1694,
+          "y_m": 63,
+          "height_m": 90,
+          "radius_m": 65
+        }
+      ]
+    },
+    {
+      "id": "lesson-08",
+      "name": "08. Озёрный маршрут",
+      "coordinate_system": "fictional_local",
+      "start": {
+        "x_m": 0,
+        "y_m": 0,
+        "height_m": 0
+      },
+      "height_tolerance_m": 15,
+      "demo_speed_m_s": 60,
+      "waypoints": [
+        {
+          "type": "takeoff",
+          "name": "Ворота 1",
+          "x_m": 0,
+          "y_m": 0,
+          "height_m": 80,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 2",
+          "x_m": 0,
+          "y_m": 762,
+          "height_m": 100,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 3",
+          "x_m": 692,
+          "y_m": 1454,
+          "height_m": 130,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 4",
+          "x_m": 1039,
+          "y_m": 1939,
+          "height_m": 150,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 5",
+          "x_m": 1454,
+          "y_m": 1246,
+          "height_m": 110,
+          "radius_m": 65
+        },
+        {
+          "type": "goal",
+          "name": "Финишная площадка 8",
+          "x_m": 1731,
+          "y_m": 346,
+          "height_m": 100,
+          "radius_m": 65
+        }
+      ]
+    },
+    {
+      "id": "lesson-09",
+      "name": "09. Восточная петля",
+      "coordinate_system": "fictional_local",
+      "start": {
+        "x_m": 0,
+        "y_m": 0,
+        "height_m": 0
+      },
+      "height_tolerance_m": 15,
+      "demo_speed_m_s": 60,
+      "waypoints": [
+        {
+          "type": "takeoff",
+          "name": "Ворота 1",
+          "x_m": 0,
+          "y_m": 0,
+          "height_m": 90,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 2",
+          "x_m": -126,
+          "y_m": 782,
+          "height_m": 110,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 3",
+          "x_m": 470,
+          "y_m": 1607,
+          "height_m": 140,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 4",
+          "x_m": 1286,
+          "y_m": 1520,
+          "height_m": 120,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 5",
+          "x_m": 1972,
+          "y_m": 1339,
+          "height_m": 160,
+          "radius_m": 65
+        },
+        {
+          "type": "goal",
+          "name": "Финишная площадка 9",
+          "x_m": 1720,
+          "y_m": 642,
+          "height_m": 110,
+          "radius_m": 65
+        }
+      ]
+    },
+    {
+      "id": "lesson-10",
+      "name": "10. Четыре поворота",
+      "coordinate_system": "fictional_local",
+      "start": {
+        "x_m": 0,
+        "y_m": 0,
+        "height_m": 0
+      },
+      "height_tolerance_m": 15,
+      "demo_speed_m_s": 60,
+      "waypoints": [
+        {
+          "type": "takeoff",
+          "name": "Ворота 1",
+          "x_m": 0,
+          "y_m": 0,
+          "height_m": 70,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 2",
+          "x_m": -259,
+          "y_m": 781,
+          "height_m": 90,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 3",
+          "x_m": 216,
+          "y_m": 1725,
+          "height_m": 120,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 4",
+          "x_m": 1067,
+          "y_m": 1771,
+          "height_m": 100,
+          "radius_m": 65
+        },
+        {
+          "type": "goal",
+          "name": "Финишная площадка 10",
+          "x_m": 1656,
+          "y_m": 943,
+          "height_m": 90,
+          "radius_m": 65
+        }
+      ]
+    },
+    {
+      "id": "lesson-11",
+      "name": "11. Воздушный коридор",
+      "coordinate_system": "fictional_local",
+      "start": {
+        "x_m": 0,
+        "y_m": 0,
+        "height_m": 0
+      },
+      "height_tolerance_m": 15,
+      "demo_speed_m_s": 60,
+      "waypoints": [
+        {
+          "type": "takeoff",
+          "name": "Ворота 1",
+          "x_m": 0,
+          "y_m": 0,
+          "height_m": 80,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 2",
+          "x_m": 268,
+          "y_m": 809,
+          "height_m": 100,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 3",
+          "x_m": 1248,
+          "y_m": 1301,
+          "height_m": 130,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 4",
+          "x_m": 1786,
+          "y_m": 1694,
+          "height_m": 150,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 5",
+          "x_m": 1984,
+          "y_m": 812,
+          "height_m": 110,
+          "radius_m": 65
+        },
+        {
+          "type": "goal",
+          "name": "Финишная площадка 11",
+          "x_m": 1961,
+          "y_m": -242,
+          "height_m": 100,
+          "radius_m": 65
+        }
+      ]
+    },
+    {
+      "id": "lesson-12",
+      "name": "12. Большой круг",
+      "coordinate_system": "fictional_local",
+      "start": {
+        "x_m": 0,
+        "y_m": 0,
+        "height_m": 0
+      },
+      "height_tolerance_m": 15,
+      "demo_speed_m_s": 60,
+      "waypoints": [
+        {
+          "type": "takeoff",
+          "name": "Ворота 1",
+          "x_m": 0,
+          "y_m": 0,
+          "height_m": 90,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 2",
+          "x_m": 141,
+          "y_m": 871,
+          "height_m": 110,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 3",
+          "x_m": 1061,
+          "y_m": 1536,
+          "height_m": 140,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 4",
+          "x_m": 1894,
+          "y_m": 1158,
+          "height_m": 120,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 5",
+          "x_m": 2556,
+          "y_m": 726,
+          "height_m": 160,
+          "radius_m": 65
+        },
+        {
+          "type": "goal",
+          "name": "Финишная площадка 12",
+          "x_m": 2045,
+          "y_m": 76,
+          "height_m": 110,
+          "radius_m": 65
+        }
+      ]
+    },
+    {
+      "id": "lesson-13",
+      "name": "13. Смена высоты",
+      "coordinate_system": "fictional_local",
+      "start": {
+        "x_m": 0,
+        "y_m": 0,
+        "height_m": 0
+      },
+      "height_tolerance_m": 15,
+      "demo_speed_m_s": 60,
+      "waypoints": [
+        {
+          "type": "takeoff",
+          "name": "Ворота 1",
+          "x_m": 0,
+          "y_m": 0,
+          "height_m": 70,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 2",
+          "x_m": 0,
+          "y_m": 913,
+          "height_m": 90,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 3",
+          "x_m": 830,
+          "y_m": 1743,
+          "height_m": 120,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 4",
+          "x_m": 1743,
+          "y_m": 1494,
+          "height_m": 100,
+          "radius_m": 65
+        },
+        {
+          "type": "goal",
+          "name": "Финишная площадка 13",
+          "x_m": 2075,
+          "y_m": 415,
+          "height_m": 90,
+          "radius_m": 65
+        }
+      ]
+    },
+    {
+      "id": "lesson-14",
+      "name": "14. Двойная дуга",
+      "coordinate_system": "fictional_local",
+      "start": {
+        "x_m": 0,
+        "y_m": 0,
+        "height_m": 0
+      },
+      "height_tolerance_m": 15,
+      "demo_speed_m_s": 60,
+      "waypoints": [
+        {
+          "type": "takeoff",
+          "name": "Ворота 1",
+          "x_m": 0,
+          "y_m": 0,
+          "height_m": 80,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 2",
+          "x_m": -150,
+          "y_m": 931,
+          "height_m": 100,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 3",
+          "x_m": 560,
+          "y_m": 1914,
+          "height_m": 130,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 4",
+          "x_m": 887,
+          "y_m": 2575,
+          "height_m": 150,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 5",
+          "x_m": 1532,
+          "y_m": 1811,
+          "height_m": 110,
+          "radius_m": 65
+        },
+        {
+          "type": "goal",
+          "name": "Финишная площадка 14",
+          "x_m": 2048,
+          "y_m": 765,
+          "height_m": 100,
+          "radius_m": 65
+        }
+      ]
+    },
+    {
+      "id": "lesson-15",
+      "name": "15. Итоговое занятие",
+      "coordinate_system": "fictional_local",
+      "start": {
+        "x_m": 0,
+        "y_m": 0,
+        "height_m": 0
+      },
+      "height_tolerance_m": 15,
+      "demo_speed_m_s": 60,
+      "waypoints": [
+        {
+          "type": "takeoff",
+          "name": "Ворота 1",
+          "x_m": 0,
+          "y_m": 0,
+          "height_m": 90,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 2",
+          "x_m": -306,
+          "y_m": 924,
+          "height_m": 110,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 3",
+          "x_m": 255,
+          "y_m": 2043,
+          "height_m": 140,
+          "radius_m": 65
+        },
+        {
+          "type": "transit",
+          "name": "Ворота 4",
+          "x_m": 1263,
+          "y_m": 2097,
+          "height_m": 120,
+          "radius_m": 65
+        },
+        {
+          "type": "maneuver",
+          "name": "Ворота 5",
+          "x_m": 2130,
+          "y_m": 2011,
+          "height_m": 160,
+          "radius_m": 65
+        },
+        {
+          "type": "goal",
+          "name": "Финишная площадка 15",
+          "x_m": 1961,
+          "y_m": 1116,
+          "height_m": 110,
+          "radius_m": 65
+        }
+      ]
+    }
+  ]
+}

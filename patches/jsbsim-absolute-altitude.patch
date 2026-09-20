@@ -1,0 +1,11 @@
+--- a/SIM_JSBSim.cpp
++++ b/SIM_JSBSim.cpp
+@@ -441,7 +441,7 @@
+     location = {
+         int32_t(RAD_TO_DEG_DOUBLE * fdm.latitude * 1.0e7),
+         int32_t(RAD_TO_DEG_DOUBLE * fdm.longitude * 1.0e7),
+-        int32_t(fdm.agl*100 + home.alt),
++        int32_t(fdm.altitude*100 + home.alt),
+         Location::AltFrame::ABSOLUTE
+     };
+     dcm.from_euler(fdm.phi, fdm.theta, fdm.psi);

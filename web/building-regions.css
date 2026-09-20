@@ -1,0 +1,9 @@
+.building-region-search { width:100%; box-sizing:border-box; }
+.building-region-list { max-height:42vh; overflow-y:auto; margin:10px 0; }
+.building-region-row { display:flex; align-items:center; gap:10px; padding:9px 0; border-bottom:1px solid #ffffff20; }
+.building-region-row > div { flex:1; min-width:0; }
+.building-region-row strong,.building-region-row small { display:block; overflow-wrap:anywhere; }
+.building-region-row strong { font-size:inherit; color:#c0eaa2; font-weight:500; }
+.building-region-row button { flex:none; }
+.building-region-message { overflow-wrap:anywhere; }
+.building-region-match { background:#b8e99418; outline:1px solid #b8e994; outline-offset:-1px; }

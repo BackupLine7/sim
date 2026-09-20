@@ -1,0 +1,13 @@
+{
+  "speed_m_s": 250,
+  "minimum_speed_m_s": 0.25,
+  "maximum_speed_m_s": 100000,
+  "wheel_factor": 1.25,
+  "boost_multiplier": 4,
+  "look_radians_per_pixel": 0.003,
+  "maximum_frame_s": 0.1,
+  "focus_distance_m": 40,
+  "minimum_focus_distance_m": 3,
+  "maximum_focus_distance_m": 100000,
+  "focus_pitch_rad": -0.35
+}
